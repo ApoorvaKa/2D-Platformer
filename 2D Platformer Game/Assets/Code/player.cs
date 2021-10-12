@@ -12,7 +12,7 @@ public int speed;
     public Transform feet;
     public bool onGround = false;
     float xSpeed = 0;
-
+    
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -23,7 +23,10 @@ public int speed;
     {
         float xSpeed = Input.GetAxis("Horizontal") * speed;
         _rigidbody.velocity = new Vector2(xSpeed, _rigidbody.velocity.y);
-
+        if((xSpeed<0 && transform.localScale.x>0) || (xSpeed>0 && transform.localScale.x<0))
+        {
+            transform.localScale *= new Vector2(-1,1);
+        }
     }
 
     void Update(){
