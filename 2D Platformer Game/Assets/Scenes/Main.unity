@@ -246,7 +246,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &770090669
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -256,7 +256,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 770090667}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b2b3ee9ebcdbb76409daf5bc9042af0e, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -352,13 +352,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  maxSpeed: 7
   jumpForce: 500
+  dashForce: 700
   numJumps: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   feet: {fileID: 2120278853}
   onGround: 0
+  hasDash: 0
 --- !u!1 &861085899
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +466,7 @@ Transform:
   m_GameObject: {fileID: 861085899}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.34, y: -3.98, z: 0}
-  m_LocalScale: {x: 14.637, y: 1, z: 1}
+  m_LocalScale: {x: 116.36415, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
