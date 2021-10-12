@@ -1737,20 +1737,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1637830635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb89b2e84996b6b41ab25f5cc706469b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e1ef49cc85978d409bc76ce9f217063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 10
+  maxSpeed: 10
   jumpForce: 500
+  dashForce: 250
+  numJumps: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  feetPosition: {fileID: 89398013}
-  grounded: 1
+  feet: {fileID: 89398013}
+  onGround: 1
+  hasDash: 0
+  vcam: {fileID: 209648418}
   removable_dark: {fileID: 1675106056}
   removable_light: {fileID: 399989338}
   Light: 1
-  vcam: {fileID: 209648418}
 --- !u!212 &1637830638
 SpriteRenderer:
   m_ObjectHideFlags: 0
