@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 7359065857839184103}
   - component: {fileID: 7894584587492484633}
   m_Layer: 0
-  m_Name: pixil-frame-0 (1) 1
-  m_TagString: Untagged
+  m_Name: rock
+  m_TagString: rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3286e543a58a2dc42be1525baa36bcb5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1a953fa09dece57429d6406dfc78e325, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -118,6 +118,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.020208789, y: 0.010881615}
   serializedVersion: 2
-  m_Radius: 0.32
+  m_Radius: 0.1738751
