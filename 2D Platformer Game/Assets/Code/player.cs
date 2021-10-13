@@ -100,13 +100,19 @@ public class player : MonoBehaviour
         }
     }
 
-    //detecting death to reload and change the view of the cinemachine
+    // detecting death to reload and change the view of the cinemachine
+    // we can change the level player reloads to later. 
+    // Either first level or current level
+
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.CompareTag("rock")){
             SceneManager.LoadScene("Scene2(Allen)");
         }
         if(other.gameObject.CompareTag("main")){
             vcam.m_Lens.OrthographicSize =7;
+        }
+        if (other.gameObject.CompareTag("enemy")){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
