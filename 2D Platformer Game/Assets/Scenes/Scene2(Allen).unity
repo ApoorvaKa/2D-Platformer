@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1637830639}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 7
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -750,7 +750,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2006,6 +2006,7 @@ MonoBehaviour:
   vcam: {fileID: 209648418}
   removable_dark: {fileID: 1675106056}
   removable_light: {fileID: 399989338}
+  animator: {fileID: 1637830641}
   Light: 1
 --- !u!212 &1637830638
 SpriteRenderer:

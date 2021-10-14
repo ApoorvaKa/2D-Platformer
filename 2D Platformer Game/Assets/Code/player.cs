@@ -25,6 +25,8 @@ public class player : MonoBehaviour
     public GameObject removable_dark;
     public GameObject removable_light;
 
+    //using for animator parameters
+    public Animator animator;
     //boolean for switching color meachinsim
     public bool Light=false;
     void Start()
@@ -98,6 +100,8 @@ public class player : MonoBehaviour
         if(Input.GetKeyDown("1")){
             Light=!Light;
         }
+    
+        animator.SetFloat("Speed",Mathf.Abs(xSpeed));
     }
 
     // detecting death to reload and change the view of the cinemachine
