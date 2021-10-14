@@ -8,6 +8,7 @@ TagManager:
   - rock
   - enemy
   - portal
+  - player
   layers:
   - Default
   - TransparentFX

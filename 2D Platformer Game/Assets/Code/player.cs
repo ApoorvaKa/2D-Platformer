@@ -16,7 +16,6 @@ public class player : MonoBehaviour
     public Transform feet;
     public bool onGround = false;
     public bool hasDash = false;
-    public int level = 1;
     float xSpeed = 0;
 
     //the cinemachine object
@@ -111,17 +110,13 @@ public class player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.CompareTag("rock")){
-            SceneManager.LoadScene("Scene2(Allen)");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         if(other.gameObject.CompareTag("main")){
             vcam.m_Lens.OrthographicSize =7;
         }
         if (other.gameObject.CompareTag("enemy")){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-        if (other.gameObject.CompareTag("portal")){
-            level+=1;
-            SceneManager.LoadScene("Level"+level);
         }
     }
 }
