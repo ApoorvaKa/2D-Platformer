@@ -1979,7 +1979,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1637830637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2003,6 +2003,7 @@ MonoBehaviour:
   feet: {fileID: 89398013}
   onGround: 1
   hasDash: 0
+  level: 1
   vcam: {fileID: 209648418}
   removable_dark: {fileID: 1675106056}
   removable_light: {fileID: 399989338}
