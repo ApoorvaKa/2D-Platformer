@@ -6,10 +6,10 @@ using Cinemachine;
 
 public class player : MonoBehaviour
 {
-    public int speed = 10;
-    public int maxSpeed = 50;
-    public int jumpForce = 200;
-    public int dashForce = 250;
+    int speed = 18;
+    int maxSpeed = 12;
+    int jumpForce = 600;
+    int dashForce = 700;
     public int numJumps = 0;
     Rigidbody2D _rigidbody;
     public LayerMask groundLayer;
@@ -39,9 +39,9 @@ public class player : MonoBehaviour
     {
         xSpeed = Input.GetAxis("Horizontal") * speed;
         // changing direction is made faster here on the ground
-        //if(_rigidbody.velocity.x/xSpeed < 0 && onGround){
-        //    _rigidbody.velocity = new Vector2(_rigidbody.velocity.x/1.1f, _rigidbody.velocity.y);
-        //}
+        if(Mathf.Abs(Input.GetAxis("Horizontal")) < 0.1f || (_rigidbody.velocity.x/xSpeed <= 0 && onGround)){
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x/1.1f, _rigidbody.velocity.y);
+        }
 
         // Movement slightly acceleration based now, mainly to avoid horizonal velocity resetting
         if(Mathf.Abs(_rigidbody.velocity.x) < maxSpeed){
@@ -97,7 +97,7 @@ public class player : MonoBehaviour
         }
 
         // press "1" to switch from colors (currently only two)
-        if(Input.GetKeyDown("1")){
+        if(Input.GetButtonDown("Fire2")){
             Light=!Light;
         }
     
