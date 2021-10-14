@@ -7,6 +7,7 @@ TagManager:
   - main
   - rock
   - enemy
+  - portal
   layers:
   - Default
   - TransparentFX

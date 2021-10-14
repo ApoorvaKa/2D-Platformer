@@ -16,6 +16,7 @@ public class player : MonoBehaviour
     public Transform feet;
     public bool onGround = false;
     public bool hasDash = false;
+    public int level = 1;
     float xSpeed = 0;
 
     //the cinemachine object
@@ -117,6 +118,10 @@ public class player : MonoBehaviour
         }
         if (other.gameObject.CompareTag("enemy")){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (other.gameObject.CompareTag("portal")){
+            level+=1;
+            SceneManager.LoadScene("Level"+level);
         }
     }
 }
