@@ -39,7 +39,7 @@ public class player : MonoBehaviour
     {
         xSpeed = Input.GetAxis("Horizontal") * speed;
         // changing direction is made faster here on the ground
-        if(Mathf.Abs(Input.GetAxis("Horizontal")) < 0.1f || (_rigidbody.velocity.x/xSpeed <= 0 && onGround)){
+        if(Mathf.Abs(Input.GetAxis("Horizontal")) < 0.01f || (_rigidbody.velocity.x/xSpeed <= 0 && onGround)){
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x/1.1f, _rigidbody.velocity.y);
         }
 
