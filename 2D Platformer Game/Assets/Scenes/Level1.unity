@@ -1164,7 +1164,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press 1 to change colors
+  m_Text: 'Right click to change colors
+
+    (Or press LR/RB on controller)'
 --- !u!222 &1260883678
 CanvasRenderer:
   m_ObjectHideFlags: 0
