@@ -9,7 +9,7 @@ public class rock_spawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("createRock", 4, 2);
+        InvokeRepeating("createRock", 10, 5);
     }
 
     void createRock(){
