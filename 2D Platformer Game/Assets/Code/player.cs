@@ -112,9 +112,6 @@ public class player : MonoBehaviour
         if(other.gameObject.CompareTag("rock")){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        if(other.gameObject.CompareTag("main")){
-            vcam.m_Lens.OrthographicSize =7;
-        }
         if (other.gameObject.CompareTag("enemy")){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
