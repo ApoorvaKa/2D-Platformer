@@ -79,12 +79,9 @@ public class player : MonoBehaviour
     // Either first level or current level
 
     private void OnCollisionEnter2D(Collision2D other) {
-      //if(other.gameObject.CompareTag("rock")){
-      //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-      //}
-      if(other.gameObject.CompareTag("main")){
-          vcam.m_Lens.OrthographicSize =7;
-      }
+        if(other.gameObject.CompareTag("rock")){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
         if (other.gameObject.CompareTag("enemy")){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -93,9 +90,6 @@ public class player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("enemy")){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-        if (other.gameObject.CompareTag("proximity vanish")){
-            Destroy(other.gameObject);
         }
     }
 }
