@@ -52,7 +52,7 @@ public class player : MonoBehaviour
         if((xSpeed<0 && transform.localScale.x>0)||(xSpeed>0 && transform.localScale.x<0)){
             transform.localScale*=new Vector2(-1,1);
         }
-    
+
         //remove and reappear the object based on boolean "light"
         if(Light){
             removable_dark.gameObject.SetActive(true);
@@ -74,7 +74,7 @@ public class player : MonoBehaviour
             numJumps = 0;
             hasDash = true; // You get only can dash once before touching the ground
         }
-    
+
         if(Input.GetButtonDown("Jump") && (onGround || numJumps > 0)){
             // zeroing out the velocity makes sure that a double jump can't happen
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
@@ -100,18 +100,21 @@ public class player : MonoBehaviour
         if(Input.GetButtonDown("Fire2")){
             Light=!Light;
         }
-    
+
         animator.SetFloat("Speed",Mathf.Abs(xSpeed));
     }
 
     // detecting death to reload and change the view of the cinemachine
-    // we can change the level player reloads to later. 
+    // we can change the level player reloads to later.
     // Either first level or current level
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.CompareTag("rock")){
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+      //if(other.gameObject.CompareTag("rock")){
+      //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+      //}
+      if(other.gameObject.CompareTag("main")){
+          vcam.m_Lens.OrthographicSize =7;
+      }
         if (other.gameObject.CompareTag("enemy")){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -120,6 +123,9 @@ public class player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("enemy")){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (other.gameObject.CompareTag("proximity vanish")){
+            Destroy(other.gameObject);
         }
     }
 }
