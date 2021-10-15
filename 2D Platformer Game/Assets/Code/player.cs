@@ -116,4 +116,10 @@ public class player : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("enemy")){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
 }
