@@ -6,16 +6,13 @@ using Cinemachine;
 
 public class player : MonoBehaviour
 {
-    int speed = 18;
-    int maxSpeed = 12;
+    int speed = 8;
     int jumpForce = 600;
-    int dashForce = 700;
-    public int numJumps = 0;
+    public int numJumps = 1;
     Rigidbody2D _rigidbody;
     public LayerMask groundLayer;
     public Transform feet;
     public bool onGround = false;
-    public bool hasDash = false;
     float xSpeed = 0;
 
     //the cinemachine object
@@ -39,19 +36,7 @@ public class player : MonoBehaviour
     {
         xSpeed = Input.GetAxis("Horizontal") * speed;
         // changing direction is made faster here on the ground
-        if(Mathf.Abs(Input.GetAxis("Horizontal")) < 0.01f || (_rigidbody.velocity.x/xSpeed <= 0 && onGround)){
-            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x/1.1f, _rigidbody.velocity.y);
-        }
-
-        // Movement slightly acceleration based now, mainly to avoid horizonal velocity resetting
-        if(Mathf.Abs(_rigidbody.velocity.x) < maxSpeed){
-            _rigidbody.AddForce(new Vector2(xSpeed,0));
-        }
-
-        //turning the player direction
-        if((xSpeed<0 && transform.localScale.x>0)||(xSpeed>0 && transform.localScale.x<0)){
-            transform.localScale*=new Vector2(-1,1);
-        }
+        _rigidbody.velocity = new Vector2(xSpeed, _rigidbody.velocity.y);
 
         //remove and reappear the object based on boolean "light"
         if(Light){
@@ -71,8 +56,7 @@ public class player : MonoBehaviour
     void Update(){
         onGround = Physics2D.OverlapCircle(feet.position, .3f, groundLayer);
         if(onGround){
-            numJumps = 0;
-            hasDash = true; // You get only can dash once before touching the ground
+            numJumps = 1;
         }
 
         if(Input.GetButtonDown("Jump") && (onGround || numJumps > 0)){
@@ -80,20 +64,6 @@ public class player : MonoBehaviour
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
             _rigidbody.AddForce(new Vector2(0, jumpForce));
             numJumps--;
-        }
-
-        // Dash is set to Fire1 for now
-        // Dash applies a force in the direction the player is moving
-        if(Input.GetButtonDown("Fire1") && hasDash){
-            Vector2 direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            // zeroing out the velocity to make the dash more noticible
-            _rigidbody.velocity = new Vector2(0,1);
-
-            // Setting dash magnitude
-            direction.Normalize();
-            direction *= dashForce;
-            _rigidbody.AddForce(direction);
-            hasDash = false;
         }
 
         // press "1" to switch from colors (currently only two)
