@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 19253408}
   m_Layer: 6
   m_Name: box
-  m_TagString: Untagged
+  m_TagString: box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1414,7 +1414,7 @@ GameObject:
   - component: {fileID: 798427475}
   m_Layer: 6
   m_Name: box (2)
-  m_TagString: Untagged
+  m_TagString: box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2745,7 +2745,7 @@ GameObject:
   - component: {fileID: 1456204582}
   m_Layer: 6
   m_Name: box (1)
-  m_TagString: Untagged
+  m_TagString: box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3068,7 +3068,6 @@ MonoBehaviour:
     m_Bits: 64
   feet: {fileID: 89398013}
   onGround: 1
-  hasDash: 0
   vcam: {fileID: 209648418}
   removable_dark: {fileID: 127397633}
   removable_light: {fileID: 1193744929}
@@ -3320,6 +3319,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1193744930}
     m_Modifications:
+    - target: {fileID: 8697708107450004172, guid: bf413fa84e0618a4c80fd81782be7dee, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8697708107450004173, guid: bf413fa84e0618a4c80fd81782be7dee, type: 3}
       propertyPath: m_Color.b
       value: 0.9811321

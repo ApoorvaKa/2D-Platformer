@@ -14,7 +14,6 @@ public class player : MonoBehaviour
     public Transform feet;
     public bool onGround = false;
     float xSpeed = 0;
-
     //the cinemachine object
     public CinemachineVirtualCamera vcam;
 
@@ -37,15 +36,53 @@ public class player : MonoBehaviour
         xSpeed = Input.GetAxis("Horizontal") * speed;
         // changing direction is made faster here on the ground
         _rigidbody.velocity = new Vector2(xSpeed, _rigidbody.velocity.y);
-
+        if((xSpeed<0 && transform.localScale.x>0)||(xSpeed>0 && transform.localScale.x<0)){
+            transform.localScale*=new Vector2(-1,1);
+        }
         //remove and reappear the object based on boolean "light"
+        //remove its collider and make it semi-transparent
         if(Light){
-            removable_dark.gameObject.SetActive(true);
-            removable_light.gameObject.SetActive(false);
+            foreach(Transform child in removable_light.gameObject.transform){
+                child.gameObject.GetComponent<BoxCollider2D>().isTrigger=true;
+                //only affect the rigidbody for boxes
+                if(child.tag=="box")Destroy(child.gameObject.GetComponent<Rigidbody2D>());
+                Color current=child.gameObject.GetComponent<SpriteRenderer>().color;
+                current.a=0.3f;
+                child.gameObject.GetComponent<SpriteRenderer>().color=current;
+            }
+            foreach(Transform child in removable_dark.gameObject.transform){
+                child.gameObject.GetComponent<BoxCollider2D>().isTrigger=false;
+                //only affect the rigidbody for boxes
+                if(child.tag=="box")child.gameObject.AddComponent<Rigidbody2D>();
+                Color current=child.gameObject.GetComponent<SpriteRenderer>().color;
+                current.a=1f;
+                child.gameObject.GetComponent<SpriteRenderer>().color=current;
+            }
+            
+            //removable_dark.gameObject.SetActive(true);
+            //removable_light.gameObject.SetActive(false);
+          
         }
         else{
-            removable_dark.gameObject.SetActive(false);
-            removable_light.gameObject.SetActive(true);
+            foreach(Transform child in removable_dark.gameObject.transform){
+                child.gameObject.GetComponent<BoxCollider2D>().isTrigger=true;
+                //only affect the rigidbody for boxes
+                if(child.tag=="box")Destroy(child.gameObject.GetComponent<Rigidbody2D>());
+                Color current=child.gameObject.GetComponent<SpriteRenderer>().color;
+                current.a=0.3f;
+                child.gameObject.GetComponent<SpriteRenderer>().color=current;
+            }
+            foreach(Transform child in removable_light.gameObject.transform){
+                child.gameObject.GetComponent<BoxCollider2D>().isTrigger=false;
+                //only affect the rigidbody for boxes
+                if(child.tag=="box") child.gameObject.AddComponent<Rigidbody2D>();
+                Color current=child.gameObject.GetComponent<SpriteRenderer>().color;
+                current.a=1f;
+                child.gameObject.GetComponent<SpriteRenderer>().color=current;
+            }
+            //removable_dark.gameObject.SetActive(false);
+            //removable_light.gameObject.SetActive(true);
+            
         }
         Vector3 euler = transform.eulerAngles;
         if (euler.z > 180) euler.z = euler.z - 360;
