@@ -91,6 +91,9 @@ public class player : MonoBehaviour
     }
 
     void Update(){
+        
+        if(publicVars.paused) return;
+
         onGround = Physics2D.OverlapCircle(feet.position, .3f, groundLayer);
         if(onGround){
             numJumps = 1;
