@@ -125,6 +125,16 @@ public class player : MonoBehaviour
         if (other.gameObject.CompareTag("enemy")){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+        if (other.gameObject.CompareTag("sloped")){
+            _rigidbody.freezeRotation = false;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other){
+        if (other.gameObject.CompareTag("sloped")){
+            _rigidbody.freezeRotation = true;
+            _rigidbody.rotation = 0f;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
