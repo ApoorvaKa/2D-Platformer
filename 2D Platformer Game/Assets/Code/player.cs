@@ -53,7 +53,8 @@ public class player : MonoBehaviour
             foreach(Transform child in removable_dark.gameObject.transform){
                 child.gameObject.GetComponent<BoxCollider2D>().isTrigger=false;
                 //only affect the rigidbody for boxes
-                if(child.tag=="box")child.gameObject.AddComponent<Rigidbody2D>();
+                if(child.tag=="box"){child.gameObject.AddComponent<Rigidbody2D>();
+                 child.gameObject.GetComponent<Rigidbody2D>().constraints= RigidbodyConstraints2D.FreezeRotation;}
                 Color current=child.gameObject.GetComponent<SpriteRenderer>().color;
                 current.a=1f;
                 child.gameObject.GetComponent<SpriteRenderer>().color=current;
@@ -75,7 +76,8 @@ public class player : MonoBehaviour
             foreach(Transform child in removable_light.gameObject.transform){
                 child.gameObject.GetComponent<BoxCollider2D>().isTrigger=false;
                 //only affect the rigidbody for boxes
-                if(child.tag=="box") child.gameObject.AddComponent<Rigidbody2D>();
+                if(child.tag=="box"){child.gameObject.AddComponent<Rigidbody2D>();
+                 child.gameObject.GetComponent<Rigidbody2D>().constraints= RigidbodyConstraints2D.FreezeRotation;}
                 Color current=child.gameObject.GetComponent<SpriteRenderer>().color;
                 current.a=1f;
                 child.gameObject.GetComponent<SpriteRenderer>().color=current;
@@ -95,8 +97,10 @@ public class player : MonoBehaviour
         if(publicVars.paused) return;
 
         onGround = Physics2D.OverlapCircle(feet.position, .3f, groundLayer);
+        animator.SetBool("Isjump",!onGround);
         if(onGround){
             numJumps = 1;
+            animator.SetBool("Isjump",false);
         }
 
         if(Input.GetButtonDown("Jump") && (onGround || numJumps > 0)){

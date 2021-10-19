@@ -7,9 +7,21 @@ public class Push : MonoBehaviour
     public GameObject Button;
     public GameObject laser;
 
+    private void FixedUpdate() {
+        
+    }
     private void OnTriggerExit2D(Collider2D other) {
             Button.SetActive(true);
             laser.SetActive(true);
+        
+    }
+
+    private void OnTriggerStay2D(Collider2D other) {
+        if(other.gameObject.GetComponent<BoxCollider2D>().isTrigger){
+            print(other.gameObject.GetComponent<BoxCollider2D>().isTrigger);
+            Button.SetActive(true);
+            laser.SetActive(true);
+        }
     }
     
 }
