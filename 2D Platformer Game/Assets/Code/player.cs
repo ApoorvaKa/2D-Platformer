@@ -132,6 +132,9 @@ public class player : MonoBehaviour
         if (other.gameObject.CompareTag("sloped")){
             _rigidbody.freezeRotation = false;
         }
+        else{
+            
+        }
     }
 
     private void OnCollisionExit2D(Collision2D other){

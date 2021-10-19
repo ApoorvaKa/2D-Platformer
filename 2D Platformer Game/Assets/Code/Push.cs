@@ -17,8 +17,8 @@ public class Push : MonoBehaviour
     }
 
     private void OnTriggerStay2D(Collider2D other) {
-        if(other.gameObject.GetComponent<BoxCollider2D>().isTrigger){
-            print(other.gameObject.GetComponent<BoxCollider2D>().isTrigger);
+        if(other.tag=="box"&&other.gameObject.GetComponent<BoxCollider2D>().isTrigger){
+            //print(other.gameObject.GetComponent<BoxCollider2D>().isTrigger);
             Button.SetActive(true);
             laser.SetActive(true);
         }
