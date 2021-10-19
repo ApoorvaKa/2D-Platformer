@@ -9,8 +9,8 @@ TagManager:
   - enemy
   - portal
   - player
-  - proximity vanish
   - box
+  - sloped
   layers:
   - Default
   - TransparentFX
