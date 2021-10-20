@@ -61,9 +61,13 @@ public class player : MonoBehaviour
             }
             foreach(Transform child in removable_dark.gameObject.transform){
                 child.gameObject.GetComponent<BoxCollider2D>().isTrigger=false;
-                //only affect the rigidbody for boxes
-                if(child.tag=="box"){child.gameObject.AddComponent<Rigidbody2D>();
-                 child.gameObject.GetComponent<Rigidbody2D>().constraints= RigidbodyConstraints2D.FreezeRotation;}
+                //only affect the rigidbody for boxes (when they don't have rigidbody)
+                if(child.tag=="box"){
+                    if(child.gameObject.GetComponent<Rigidbody2D>()==null){
+                        child.gameObject.AddComponent<Rigidbody2D>();
+                        child.gameObject.GetComponent<Rigidbody2D>().constraints= RigidbodyConstraints2D.FreezeRotation;
+                    }
+                }
                 else if(child.tag=="rock hole") child.transform.GetChild(0).gameObject.SetActive(true);
                 Color current=child.gameObject.GetComponent<SpriteRenderer>().color;
                 current.a=1f;
@@ -86,9 +90,13 @@ public class player : MonoBehaviour
             }
             foreach(Transform child in removable_light.gameObject.transform){
                 child.gameObject.GetComponent<BoxCollider2D>().isTrigger=false;
-                //only affect the rigidbody for boxes
-                if(child.tag=="box"){child.gameObject.AddComponent<Rigidbody2D>();
-                 child.gameObject.GetComponent<Rigidbody2D>().constraints= RigidbodyConstraints2D.FreezeRotation;}
+                //only affect the rigidbody for boxes (when they don't have rigidbody)
+                if(child.tag=="box"){
+                    if(child.gameObject.GetComponent<Rigidbody2D>()==null){
+                        child.gameObject.AddComponent<Rigidbody2D>();
+                        child.gameObject.GetComponent<Rigidbody2D>().constraints= RigidbodyConstraints2D.FreezeRotation;
+                    }
+                }
                 else if(child.tag=="rock hole") child.transform.GetChild(0).gameObject.SetActive(true);
                 Color current=child.gameObject.GetComponent<SpriteRenderer>().color;
                 current.a=1f;

@@ -6,7 +6,7 @@ public class laser : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject button1;
-    public GameObject button2;
+    public GameObject button2=null;
     // Update is called once per frame
 
     AudioSource audioSource;
