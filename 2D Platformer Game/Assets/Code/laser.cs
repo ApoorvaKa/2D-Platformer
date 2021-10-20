@@ -8,8 +8,13 @@ public class laser : MonoBehaviour
     public GameObject button1;
     public GameObject button2;
     // Update is called once per frame
+
+    AudioSource audioSource;
     void FixedUpdate()
     {
+        if(!audioSource.isPlaying) audioSource.Play();
+        else audioSource.Stop();
+        
         if(!(button1.activeInHierarchy&&button2.activeInHierarchy)){
             gameObject.SetActive(false);
         }

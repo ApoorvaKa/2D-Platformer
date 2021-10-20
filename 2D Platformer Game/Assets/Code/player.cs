@@ -20,7 +20,7 @@ public class player : MonoBehaviour
     //gameobjects for color (currently only dark and light)
     public GameObject removable_dark;
     public GameObject removable_light;
-
+    AudioSource audioSource;
     //using for animator parameters
     public Animator animator;
     //boolean for switching color meachinsim
@@ -28,6 +28,7 @@ public class player : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        audioSource=GetComponent<AudioSource>();
     }
 
 
@@ -39,6 +40,13 @@ public class player : MonoBehaviour
         if((xSpeed<0 && transform.localScale.x>0)||(xSpeed>0 && transform.localScale.x<0)){
             transform.localScale*=new Vector2(-1,1);
         }
+
+        //sound effect for walking
+        if(xSpeed!=0){
+            if(!audioSource.isPlaying)audioSource.Play();
+        }
+        else audioSource.Stop();
+
         //remove and reappear the object based on boolean "light"
         //remove its collider and make it semi-transparent
         if(Light){
@@ -101,11 +109,14 @@ public class player : MonoBehaviour
         if(publicVars.paused) return;
 
         onGround = Physics2D.OverlapCircle(feet.position, .3f, groundLayer);
-        animator.SetBool("Isjump",!onGround);
+        //animator.SetBool("Isjump",!onGround);
         if(onGround){
             numJumps = 1;
-            animator.SetBool("Isjump",false);
+            //animator.SetBool("Isjump",false);
         }
+
+        if( _rigidbody.velocity.y!=0)animator.SetBool("Isjump",true);
+        else animator.SetBool("Isjump",false);
 
         if(Input.GetButtonDown("Jump") && (onGround || numJumps > 0)){
             // zeroing out the velocity makes sure that a double jump can't happen
