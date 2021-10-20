@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rock: {fileID: 1527498832962346700, guid: 516148292e0357644b514b5ce621561a, type: 3}
+  offset: 10
+  time: 5
 --- !u!1 &9114056096741289000
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,7 +58,7 @@ GameObject:
   - component: {fileID: 9114056096741289002}
   m_Layer: 0
   m_Name: rock dropper hole
-  m_TagString: Untagged
+  m_TagString: rock hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

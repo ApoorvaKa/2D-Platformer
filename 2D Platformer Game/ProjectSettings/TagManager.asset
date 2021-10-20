@@ -11,6 +11,7 @@ TagManager:
   - player
   - box
   - sloped
+  - rock hole
   layers:
   - Default
   - TransparentFX
