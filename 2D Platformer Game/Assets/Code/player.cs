@@ -29,6 +29,7 @@ public class player : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         audioSource=GetComponent<AudioSource>();
+        GameObject.FindGameObjectWithTag("music").GetComponent<music>().PlayMusic();
     }
 
 

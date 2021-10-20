@@ -12,6 +12,7 @@ TagManager:
   - box
   - sloped
   - rock hole
+  - music
   layers:
   - Default
   - TransparentFX
