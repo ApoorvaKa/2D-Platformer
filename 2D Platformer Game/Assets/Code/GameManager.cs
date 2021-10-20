@@ -7,12 +7,30 @@ public class GameManager : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject quitButton;
+
+    private AudioSource[] allAudioSources;
     void Start(){
         Resume();
         
         #if UNITY_WEBGL
         quitButton.SetActive(false);
         #endif
+    }
+
+    //pause all audio when menue comes out
+    void PauseAllAudio() {
+        allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
+        foreach( AudioSource audioS in allAudioSources) {
+            audioS.Pause();
+        }
+    }
+
+    //play all audio when game resume
+    void StartAllAudio() {
+        allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
+        foreach( AudioSource audioS in allAudioSources) {
+            audioS.Play();
+        }
     }
     void Update()
     {
@@ -25,6 +43,7 @@ public class GameManager : MonoBehaviour
                 pauseMenu.SetActive(true);
                 publicVars.paused = true;
                 Time.timeScale = 0;
+                PauseAllAudio();
             }
         }
     }
@@ -33,6 +52,7 @@ public class GameManager : MonoBehaviour
         pauseMenu.SetActive(false);
         publicVars.paused = false;
         Time.timeScale = 1;
+        StartAllAudio();
     }
 
     public void Restart(){
