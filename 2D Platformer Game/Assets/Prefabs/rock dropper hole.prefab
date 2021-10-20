@@ -46,6 +46,7 @@ MonoBehaviour:
   rock: {fileID: 1527498832962346700, guid: 516148292e0357644b514b5ce621561a, type: 3}
   offset: 10
   time: 5
+  max_spawns: 3
 --- !u!1 &9114056096741289000
 GameObject:
   m_ObjectHideFlags: 0

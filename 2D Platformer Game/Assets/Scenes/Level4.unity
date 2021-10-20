@@ -513,6 +513,10 @@ PrefabInstance:
       propertyPath: offset
       value: 24
       objectReference: {fileID: 0}
+    - target: {fileID: 7111308084534067181, guid: c76bf57288f61e64a828c2e326ae0e2a, type: 3}
+      propertyPath: max_spawns
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9114056096741289000, guid: c76bf57288f61e64a828c2e326ae0e2a, type: 3}
       propertyPath: m_Name
       value: rock dropper hole (1)
@@ -2323,6 +2327,10 @@ PrefabInstance:
     - target: {fileID: 7111308084534067181, guid: c76bf57288f61e64a828c2e326ae0e2a, type: 3}
       propertyPath: offset
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7111308084534067181, guid: c76bf57288f61e64a828c2e326ae0e2a, type: 3}
+      propertyPath: max_spawns
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9114056096741289000, guid: c76bf57288f61e64a828c2e326ae0e2a, type: 3}
       propertyPath: m_Name
@@ -4433,6 +4441,10 @@ PrefabInstance:
       propertyPath: offset
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 7111308084534067181, guid: c76bf57288f61e64a828c2e326ae0e2a, type: 3}
+      propertyPath: max_spawns
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 9114056096741289000, guid: c76bf57288f61e64a828c2e326ae0e2a, type: 3}
       propertyPath: m_Name
       value: ' rock dropper hole'
@@ -4619,6 +4631,10 @@ PrefabInstance:
     - target: {fileID: 7111308084534067181, guid: c76bf57288f61e64a828c2e326ae0e2a, type: 3}
       propertyPath: time
       value: 4.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7111308084534067181, guid: c76bf57288f61e64a828c2e326ae0e2a, type: 3}
+      propertyPath: max_spawns
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9114056096741289000, guid: c76bf57288f61e64a828c2e326ae0e2a, type: 3}
       propertyPath: m_Name
@@ -5778,6 +5794,10 @@ PrefabInstance:
     - target: {fileID: 7111308084534067181, guid: c76bf57288f61e64a828c2e326ae0e2a, type: 3}
       propertyPath: offset
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7111308084534067181, guid: c76bf57288f61e64a828c2e326ae0e2a, type: 3}
+      propertyPath: max_spawns
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9114056096741289000, guid: c76bf57288f61e64a828c2e326ae0e2a, type: 3}
       propertyPath: m_Name
