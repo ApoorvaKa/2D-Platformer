@@ -107,10 +107,6 @@ public class player : MonoBehaviour
             //removable_light.gameObject.SetActive(true);
             
         }
-        Vector3 euler = transform.eulerAngles;
-        if (euler.z > 180) euler.z = euler.z - 360;
-        euler.z = Mathf.Clamp(euler.z, -15, 15);
-        transform.eulerAngles = euler;
     }
 
     void Update(){
