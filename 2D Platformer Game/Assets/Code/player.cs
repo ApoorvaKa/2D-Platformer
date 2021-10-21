@@ -164,10 +164,4 @@ public class player : MonoBehaviour
             _rigidbody.rotation = 0f;
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.CompareTag("enemy")){
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-    }
 }
