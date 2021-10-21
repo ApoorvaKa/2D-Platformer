@@ -2210,6 +2210,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8697708107450004172, guid: bf413fa84e0618a4c80fd81782be7dee, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8697708107450004173, guid: bf413fa84e0618a4c80fd81782be7dee, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -2278,7 +2282,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8697708107450004175, guid: bf413fa84e0618a4c80fd81782be7dee, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bf413fa84e0618a4c80fd81782be7dee, type: 3}
 --- !u!4 &1123568935 stripped
 Transform:
