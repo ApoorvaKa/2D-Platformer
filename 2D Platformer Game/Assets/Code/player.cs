@@ -11,8 +11,10 @@ public class player : MonoBehaviour
     public int numJumps = 1;
     Rigidbody2D _rigidbody;
     public LayerMask groundLayer;
+    public LayerMask slopeLayer;
     public Transform feet;
     public bool onGround = false;
+    public bool onSlope =false;
     float xSpeed = 0;
     //the cinemachine object
     public CinemachineVirtualCamera vcam;
@@ -113,10 +115,13 @@ public class player : MonoBehaviour
         if(publicVars.paused) return;
 
         onGround = Physics2D.OverlapCircle(feet.position, .3f, groundLayer);
+        onSlope = Physics2D.OverlapCircle(feet.position, .3f, slopeLayer);
+        onGround = onGround||onSlope;
         //worked for slope in lv3 and lv4
-        if(onGround && _rigidbody.velocity.y>=0.15)animator.SetBool("Isjump",true);
+        if(onSlope && Mathf.Abs(_rigidbody.velocity.y)>=3.5)animator.SetBool("Isjump",true);
+        else if(!onSlope && onGround && _rigidbody.velocity.y>=0.15) animator.SetBool("Isjump",true);
         else animator.SetBool("Isjump",!onGround);
-        //print(_rigidbody.velocity.y);
+        //print(_rigidbody.velocity.y+"/"+onSlope+"/"+onGround);
         //animator.SetBool("Isjump",!onGround);
         if(onGround){
             numJumps = 1;
@@ -158,7 +163,7 @@ public class player : MonoBehaviour
     }
 
     //for laser
-    private void OnTriggerExit2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("enemy")){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }

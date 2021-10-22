@@ -165,17 +165,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e1ef49cc85978d409bc76ce9f217063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  maxSpeed: 10
-  jumpForce: 500
-  dashForce: 400
   numJumps: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  slopeLayer:
+    serializedVersion: 2
+    m_Bits: 8
   feet: {fileID: 6050998426964811073}
   onGround: 1
-  hasDash: 0
+  onSlope: 0
   vcam: {fileID: 0}
   removable_dark: {fileID: 0}
   removable_light: {fileID: 0}

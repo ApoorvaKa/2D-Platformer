@@ -1143,7 +1143,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d50f4b8f5aac56e45b3a5c5a41e744c0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.03
+  m_Volume: 0.07
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2426,7 +2426,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d50f4b8f5aac56e45b3a5c5a41e744c0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.03
+  m_Volume: 0.07
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3675,8 +3675,12 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  slopeLayer:
+    serializedVersion: 2
+    m_Bits: 8
   feet: {fileID: 89398013}
   onGround: 1
+  onSlope: 0
   vcam: {fileID: 209648418}
   removable_dark: {fileID: 127397633}
   removable_light: {fileID: 1193744929}

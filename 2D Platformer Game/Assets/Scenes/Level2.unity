@@ -3050,8 +3050,12 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  slopeLayer:
+    serializedVersion: 2
+    m_Bits: 8
   feet: {fileID: 89398013}
   onGround: 1
+  onSlope: 0
   vcam: {fileID: 209648418}
   removable_dark: {fileID: 1675106056}
   removable_light: {fileID: 399989338}
