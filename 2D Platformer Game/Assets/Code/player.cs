@@ -120,7 +120,7 @@ public class player : MonoBehaviour
             //animator.SetBool("Isjump",false);
         }
 
-        if(Mathf.Abs(_rigidbody.velocity.y)>=0.0001)animator.SetBool("Isjump",true);
+        if(Mathf.Abs(_rigidbody.velocity.y)>=0.0001 && onGround == false)animator.SetBool("Isjump",true);
         else animator.SetBool("Isjump",false);
         //print(_rigidbody.velocity.y);
 
