@@ -1851,7 +1851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8697708107450004174, guid: bf413fa84e0618a4c80fd81782be7dee, type: 3}
       propertyPath: m_TagString
-      value: sloped
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8697708107450004178, guid: bf413fa84e0618a4c80fd81782be7dee, type: 3}
       propertyPath: m_RootOrder

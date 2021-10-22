@@ -114,15 +114,15 @@ public class player : MonoBehaviour
         if(publicVars.paused) return;
 
         onGround = Physics2D.OverlapCircle(feet.position, .3f, groundLayer);
+        //worked for slope in lv3 and lv4
+        if(onGround && _rigidbody.velocity.y>=0.15)animator.SetBool("Isjump",true);
+        else animator.SetBool("Isjump",!onGround);
+        //print(_rigidbody.velocity.y);
         //animator.SetBool("Isjump",!onGround);
         if(onGround){
             numJumps = 1;
             //animator.SetBool("Isjump",false);
         }
-
-        if(Mathf.Abs(_rigidbody.velocity.y)>=0.0001)animator.SetBool("Isjump",true);
-        else animator.SetBool("Isjump",false);
-        //print(_rigidbody.velocity.y);
 
         if(Input.GetButtonDown("Jump") && (onGround || numJumps > 0)){
             // zeroing out the velocity makes sure that a double jump can't happen
@@ -155,6 +155,13 @@ public class player : MonoBehaviour
         }
         else{
             
+        }
+    }
+
+    //for laser
+    private void OnTriggerExit2D(Collider2D other) {
+        if (other.gameObject.CompareTag("enemy")){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
