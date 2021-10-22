@@ -128,7 +128,7 @@ public class player : MonoBehaviour
             //animator.SetBool("Isjump",false);
         }
 
-        if(Input.GetButtonDown("Jump") && (onGround || numJumps > 0)){
+        if(Input.GetButtonDown("Jump") && (onGround || numJumps != 0)){
             // zeroing out the velocity makes sure that a double jump can't happen
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, 0);
             _rigidbody.AddForce(new Vector2(0, jumpForce));
