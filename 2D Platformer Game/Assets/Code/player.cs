@@ -74,10 +74,10 @@ public class player : MonoBehaviour
                 current.a=1f;
                 child.gameObject.GetComponent<SpriteRenderer>().color=current;
             }
-            
+
             //removable_dark.gameObject.SetActive(true);
             //removable_light.gameObject.SetActive(false);
-          
+
         }
         else{
             foreach(Transform child in removable_dark.gameObject.transform){
@@ -110,19 +110,19 @@ public class player : MonoBehaviour
     }
 
     void Update(){
-        
+
         if(publicVars.paused) return;
 
         onGround = Physics2D.OverlapCircle(feet.position, .3f, groundLayer);
+        //worked for slope in lv3 and lv4
+        if(onGround && _rigidbody.velocity.y>=0.15)animator.SetBool("Isjump",true);
+        else animator.SetBool("Isjump",!onGround);
+        //print(_rigidbody.velocity.y);
         //animator.SetBool("Isjump",!onGround);
         if(onGround){
             numJumps = 1;
             //animator.SetBool("Isjump",false);
         }
-
-        if(Mathf.Abs(_rigidbody.velocity.y)>=0.0001 && onGround == false)animator.SetBool("Isjump",true);
-        else animator.SetBool("Isjump",false);
-        //print(_rigidbody.velocity.y);
 
         if(Input.GetButtonDown("Jump") && (onGround || numJumps > 0)){
             // zeroing out the velocity makes sure that a double jump can't happen
@@ -154,7 +154,14 @@ public class player : MonoBehaviour
             _rigidbody.freezeRotation = false;
         }
         else{
-            
+
+        }
+    }
+
+    //for laser
+    private void OnTriggerExit2D(Collider2D other) {
+        if (other.gameObject.CompareTag("enemy")){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
